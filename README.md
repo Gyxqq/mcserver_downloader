@@ -7,3 +7,4 @@ a downloader for mc server
 ```shell
 .\aria2c --input-file=download.txt
 ```
+# 如果电脑上没有python请下载with_exe版的
