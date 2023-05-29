@@ -6,14 +6,12 @@ on:
         required: true
         type: choice
         options:
-        - 1.12
-        - 1.19
-        - 1.7.10
-
-
+        - '1.12'
+        - '1.19'
+        - '1.7.10'
 jobs:
  job1:
-   if: input.tags == '1.7.10'
+   if: ${{input.tags}} == '1.7.10'
    runs-on: ubuntu-latest
    steps:
       - uses: actions/checkout@v3
