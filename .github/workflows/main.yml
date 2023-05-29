@@ -24,6 +24,8 @@ jobs:
           distribution: 'temurin'
       - name: download 
         run: wget https://github.com/Gyxqq/mcserver_downloader/releases/download/server/server_1.7.10.jar
+      - name: download2
+        run: wget https://github.com/Gyxqq/mcserver_downloader/releases/download/server/eula.txt
       - name: build 
         run: java -jar server_1.7.10.jar
       - name: tar
