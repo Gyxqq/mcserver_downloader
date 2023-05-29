@@ -12,8 +12,12 @@ on:
         - debug
       tags:
         description: 'Test scenario tags'
-        required: false
-        type: boolean
+        required: true
+        type: choice
+        options:
+        - 1.12
+        - 1.19
+        - 1.7.10
       environment:
         description: 'Environment to run tests against'
         type: environment
