@@ -9,7 +9,7 @@ on:
         options:
         - 1.7.10
         - 1.12.2
-        - 1.19.2
+        - 1.19.3
 
 jobs:
  job1:
@@ -35,6 +35,33 @@ jobs:
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v3
         with:
-          name: server
+          name: 1.7.10-server
           path: server.tar
           retention-days: 1
+ job2:          
+   if: ${{inputs.version}} == '1.12.2'
+   runs-on: ubuntu-latest
+   steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: download 
+        run: wget https://github.com/Gyxqq/mcserver_downloader/releases/download/server/forge-1.12.2.jar
+      - name: download2
+        run: wget https://github.com/Gyxqq/mcserver_downloader/releases/download/server/eula.txt
+      - name: build 
+        run: java -jar forge-1.12.2.jar --installServer 
+      - name: del 
+        run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md
+      - name: tar
+        run: tar -cf server.tar *
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.12.2-server
+          path: server.tar
+          retention-days: 1
+       
