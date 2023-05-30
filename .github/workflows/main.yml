@@ -28,6 +28,8 @@ jobs:
         run: wget https://github.com/Gyxqq/mcserver_downloader/releases/download/server/eula.txt
       - name: build 
         run: java -jar forge-1.7.10.jar --installServer 
+      - name: del 
+        run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md
       - name: tar
         run: tar -cf server.tar *
       - name: 'Upload Artifact'
