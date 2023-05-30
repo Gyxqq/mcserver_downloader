@@ -29,7 +29,7 @@ jobs:
       - name: build 
         run: java -jar forge-1.7.10.jar --installServer 
       - name: del 
-        run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md
+        run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md forge-1.7.10.jar
       - name: tar
         run: tar -cf server.tar *
       - name: 'Upload Artifact'
@@ -55,7 +55,7 @@ jobs:
       - name: build 
         run: java -jar forge-1.12.2.jar --installServer 
       - name: del 
-        run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md
+        run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md forge-1.12.2.jar
       - name: tar
         run: tar -cf server.tar *
       - name: 'Upload Artifact'
@@ -81,7 +81,7 @@ jobs:
       - name: build 
         run: java -jar forge-1.19.3.jar --installServer 
       - name: del 
-        run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md
+        run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md forge-1.19.3.jar
       - name: tar
         run: tar -cf server.tar *
       - name: 'Upload Artifact'
