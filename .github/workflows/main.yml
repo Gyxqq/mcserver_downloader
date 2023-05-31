@@ -9,7 +9,11 @@ on:
         options:
         - 1.7.10
         - 1.12.2
+        - 1.15.2
+        - 1.16.5
+        - 1.18.2
         - 1.19.3
+        
 
 jobs:
  job1:
@@ -65,6 +69,84 @@ jobs:
           path: server.tar
           retention-days: 1
  job3:          
+   if: inputs.version == '1.15.2'
+   runs-on: ubuntu-latest
+   steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: download 
+        run: wget https://github.com/Gyxqq/mcserver_downloader/releases/download/server/forge-1.15.2.jar
+      - name: download2
+        run: wget https://github.com/Gyxqq/mcserver_downloader/releases/download/server/eula.txt
+      - name: build 
+        run: java -jar forge-1.15.2.jar --installServer 
+      - name: del 
+        run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md forge-1.15.2.jar
+      - name: tar
+        run: tar -cf server.tar *
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.15.2-server
+          path: server.tar
+          retention-days: 1
+ job4:          
+   if: inputs.version == '1.16.5'
+   runs-on: ubuntu-latest
+   steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: download 
+        run: wget https://github.com/Gyxqq/mcserver_downloader/releases/download/server/forge-1.16.5.jar
+      - name: download2
+        run: wget https://github.com/Gyxqq/mcserver_downloader/releases/download/server/eula.txt
+      - name: build 
+        run: java -jar forge-1.16.5.jar --installServer 
+      - name: del 
+        run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md forge-1.16.5.jar
+      - name: tar
+        run: tar -cf server.tar *
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.16.5-server
+          path: server.tar
+          retention-days: 1
+ job5:          
+   if: inputs.version == '1.18.2'
+   runs-on: ubuntu-latest
+   steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: download 
+        run: wget https://github.com/Gyxqq/mcserver_downloader/releases/download/server/forge-1.18.2.jar
+      - name: download2
+        run: wget https://github.com/Gyxqq/mcserver_downloader/releases/download/server/eula.txt
+      - name: build 
+        run: java -jar forge-1.18.2.jar --installServer 
+      - name: del 
+        run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md forge-1.18.2.jar
+      - name: tar
+        run: tar -cf server.tar *
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.18.2-server
+          path: server.tar
+          retention-days: 1
+ job6:          
    if: inputs.version == '1.19.3'
    runs-on: ubuntu-latest
    steps:
