@@ -8,3 +8,4 @@ a downloader for mc server
 .\aria2c --input-file=download.txt
 ```
 # 如果电脑上没有python请下载with_exe版的
+# 点击action构建forge服务端
