@@ -48,10 +48,10 @@ jobs:
         run: tar -cf server.tar *
       - name: 7z  
         if: inputs.type == '7z'
-        run: apt install -y 7zip && 7z a server.7z *
+        run: sudo apt-get update && sudo apt-get install -y 7zip && 7z a server.7z *
       - name: zip
         if: inputs.type == 'zip'
-        run: apt install  -y 7zip && 7z a server.zip *
+        run: sudo apt-get update && sudo apt install  -y 7zip && 7z a server.zip *
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v3
         with:
