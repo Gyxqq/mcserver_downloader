@@ -52,11 +52,26 @@ jobs:
       - name: zip
         if: inputs.type == 'zip'
         run: sudo apt-get update && sudo apt install  -y 7zip && 7z a server.zip *
-      - name: 'Upload Artifact'
+      - name: 'Upload Artifacttar'
+        if: inputs.type == 'tar'
         uses: actions/upload-artifact@v3
         with:
           name: 1.7.10-server
           path: server.tar
+          retention-days: 1
+      - name: 'Upload Artifact7z'
+        if: inputs.type == '7z'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.7.10-server
+          path: server.7z
+          retention-days: 1   
+      - name: 'Upload Artifactzip'
+        if: inputs.type == 'zip'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.7.10-server
+          path: server.zip
           retention-days: 1
  job2:          
    if: inputs.version == '1.12.2'
@@ -77,12 +92,34 @@ jobs:
       - name: del 
         run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md forge-1.12.2.jar
       - name: tar
+        if: inputs.type == 'tar'
         run: tar -cf server.tar *
-      - name: 'Upload Artifact'
+      - name: 7z  
+        if: inputs.type == '7z'
+        run: sudo apt-get update && sudo apt-get install -y 7zip && 7z a server.7z *
+      - name: zip
+        if: inputs.type == 'zip'
+        run: sudo apt-get update && sudo apt install  -y 7zip && 7z a server.zip *
+      - name: 'Upload Artifacttar'
+        if: inputs.type == 'tar'
         uses: actions/upload-artifact@v3
         with:
           name: 1.12.2-server
           path: server.tar
+          retention-days: 1
+      - name: 'Upload Artifact7z'
+        if: inputs.type == '7z'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.12.2-server
+          path: server.7z
+          retention-days: 1   
+      - name: 'Upload Artifactzip'
+        if: inputs.type == 'zip'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.12.2-server
+          path: server.zip
           retention-days: 1
  job3:          
    if: inputs.version == '1.15.2'
@@ -103,12 +140,34 @@ jobs:
       - name: del 
         run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md forge-1.15.2.jar
       - name: tar
+        if: inputs.type == 'tar'
         run: tar -cf server.tar *
-      - name: 'Upload Artifact'
+      - name: 7z  
+        if: inputs.type == '7z'
+        run: sudo apt-get update && sudo apt-get install -y 7zip && 7z a server.7z *
+      - name: zip
+        if: inputs.type == 'zip'
+        run: sudo apt-get update && sudo apt install  -y 7zip && 7z a server.zip *
+      - name: 'Upload Artifacttar'
+        if: inputs.type == 'tar'
         uses: actions/upload-artifact@v3
         with:
           name: 1.15.2-server
           path: server.tar
+          retention-days: 1
+      - name: 'Upload Artifact7z'
+        if: inputs.type == '7z'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.15.2-server
+          path: server.7z
+          retention-days: 1   
+      - name: 'Upload Artifactzip'
+        if: inputs.type == 'zip'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.15.2-server
+          path: server.zip
           retention-days: 1
  job4:          
    if: inputs.version == '1.16.5'
@@ -129,12 +188,34 @@ jobs:
       - name: del 
         run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md forge-1.16.5.jar
       - name: tar
+        if: inputs.type == 'tar'
         run: tar -cf server.tar *
-      - name: 'Upload Artifact'
+      - name: 7z  
+        if: inputs.type == '7z'
+        run: sudo apt-get update && sudo apt-get install -y 7zip && 7z a server.7z *
+      - name: zip
+        if: inputs.type == 'zip'
+        run: sudo apt-get update && sudo apt install  -y 7zip && 7z a server.zip *
+      - name: 'Upload Artifacttar'
+        if: inputs.type == 'tar'
         uses: actions/upload-artifact@v3
         with:
           name: 1.16.5-server
           path: server.tar
+          retention-days: 1
+      - name: 'Upload Artifact7z'
+        if: inputs.type == '7z'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.16.5-server
+          path: server.7z
+          retention-days: 1   
+      - name: 'Upload Artifactzip'
+        if: inputs.type == 'zip'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.16.5-server
+          path: server.zip
           retention-days: 1
  job5:          
    if: inputs.version == '1.18.2'
@@ -155,12 +236,34 @@ jobs:
       - name: del 
         run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md forge-1.18.2.jar
       - name: tar
+        if: inputs.type == 'tar'
         run: tar -cf server.tar *
-      - name: 'Upload Artifact'
+      - name: 7z  
+        if: inputs.type == '7z'
+        run: sudo apt-get update && sudo apt-get install -y 7zip && 7z a server.7z *
+      - name: zip
+        if: inputs.type == 'zip'
+        run: sudo apt-get update && sudo apt install  -y 7zip && 7z a server.zip *
+      - name: 'Upload Artifacttar'
+        if: inputs.type == 'tar'
         uses: actions/upload-artifact@v3
         with:
           name: 1.18.2-server
           path: server.tar
+          retention-days: 1
+      - name: 'Upload Artifact7z'
+        if: inputs.type == '7z'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.18.2-server
+          path: server.7z
+          retention-days: 1   
+      - name: 'Upload Artifactzip'
+        if: inputs.type == 'zip'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.18.2-server
+          path: server.zip
           retention-days: 1
  job6:          
    if: inputs.version == '1.19.3'
@@ -181,10 +284,32 @@ jobs:
       - name: del 
         run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md forge-1.19.3.jar
       - name: tar
+        if: inputs.type == 'tar'
         run: tar -cf server.tar *
-      - name: 'Upload Artifact'
+      - name: 7z  
+        if: inputs.type == '7z'
+        run: sudo apt-get update && sudo apt-get install -y 7zip && 7z a server.7z *
+      - name: zip
+        if: inputs.type == 'zip'
+        run: sudo apt-get update && sudo apt install  -y 7zip && 7z a server.zip *
+      - name: 'Upload Artifacttar'
+        if: inputs.type == 'tar'
         uses: actions/upload-artifact@v3
         with:
           name: 1.19.3-server
           path: server.tar
+          retention-days: 1
+      - name: 'Upload Artifact7z'
+        if: inputs.type == '7z'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.19.3-server
+          path: server.7z
+          retention-days: 1   
+      - name: 'Upload Artifactzip'
+        if: inputs.type == 'zip'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.19.3-server
+          path: server.zip
           retention-days: 1
