@@ -13,6 +13,15 @@ on:
         - 1.16.5
         - 1.18.2
         - 1.19.3
+      type:
+        description: 'type'
+        required: true
+        default: 'zip'
+        type: choice
+        options:
+        - tar
+        - zip
+        - 7z
         
 
 jobs:
@@ -35,7 +44,14 @@ jobs:
       - name: del 
         run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md forge-1.7.10.jar
       - name: tar
-        run: tar -cf server.tar *
+        run: |
+         if [inputs.type == 'tar'];then
+          tar -cf server.tar *
+         elif [inputs.type == '7z'];then
+          apt install -y 7zip && 7z a server.7z *
+         else 
+          apt install  -y 7zip && 7z a server.zip *
+         fi  
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v3
         with:
