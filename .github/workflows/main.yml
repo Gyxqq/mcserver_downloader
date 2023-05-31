@@ -44,14 +44,14 @@ jobs:
       - name: del 
         run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md forge-1.7.10.jar
       - name: tar
-        run: |
-         if [inputs.type == 'tar'];then
-          tar -cf server.tar *
-         elif [inputs.type == '7z'];then
-          apt install -y 7zip && 7z a server.7z *
-         else 
-          apt install  -y 7zip && 7z a server.zip *
-         fi  
+        if: inputs.type == 'tar'
+        run: tar -cf server.tar *
+      - name: 7z  
+        if: inputs.type == '7z'
+        run: apt install -y 7zip && 7z a server.7z *
+      - name: zip
+        if: inputs.type == 'zip'
+        run: apt install  -y 7zip && 7z a server.zip *
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v3
         with:
