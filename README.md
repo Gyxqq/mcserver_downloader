@@ -8,4 +8,4 @@ a downloader for mc server
 .\aria2c --input-file=download.txt
 ```
 # 如果电脑上没有python请下载with_exe版的
-# 点击action-> main.yml -> run workflow->选择版本->构建forge服务端
+# fork到自己帐号->点击自己仓库的action-> main.yml -> run workflow->选择版本->构建forge服务端
