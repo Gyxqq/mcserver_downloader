@@ -12,6 +12,7 @@ on:
         - 1.15.2
         - 1.16.5
         - 1.18.2
+        - 1.19.2
         - 1.19.3
       type:
         description: 'type'
@@ -266,6 +267,54 @@ jobs:
           path: server.zip
           retention-days: 1
  job6:          
+   if: inputs.version == '1.19.2'
+   runs-on: ubuntu-latest
+   steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: download 
+        run: wget https://github.com/Gyxqq/mcserver_downloader/releases/download/server/forge-1.19.2.jar
+      - name: download2
+        run: wget https://github.com/Gyxqq/mcserver_downloader/releases/download/server/eula.txt
+      - name: build 
+        run: java -jar forge-1.19.3.jar --installServer 
+      - name: del 
+        run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md forge-1.19.2.jar
+      - name: tar
+        if: inputs.type == 'tar'
+        run: tar -cf server.tar *
+      - name: 7z  
+        if: inputs.type == '7z'
+        run: sudo apt-get update && sudo apt-get install -y 7zip && 7z a server.7z *
+      - name: zip
+        if: inputs.type == 'zip'
+        run: sudo apt-get update && sudo apt install  -y 7zip && 7z a server.zip *
+      - name: 'Upload Artifacttar'
+        if: inputs.type == 'tar'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.19.2-server
+          path: server.tar
+          retention-days: 1
+      - name: 'Upload Artifact7z'
+        if: inputs.type == '7z'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.19.2-server
+          path: server.7z
+          retention-days: 1   
+      - name: 'Upload Artifactzip'
+        if: inputs.type == 'zip'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 1.19.2-server
+          path: server.zip
+          retention-days: 1 
+ job7:          
    if: inputs.version == '1.19.3'
    runs-on: ubuntu-latest
    steps:
