@@ -281,7 +281,7 @@ jobs:
       - name: download2
         run: wget https://github.com/Gyxqq/mcserver_downloader/releases/download/server/eula.txt
       - name: build 
-        run: java -jar forge-1.19.3.jar --installServer 
+        run: java -jar forge-1.19.2.jar --installServer 
       - name: del 
         run: rm aria2-1.36.0-win-32bit-build1.zip downloader.py README.md forge-1.19.2.jar
       - name: tar
